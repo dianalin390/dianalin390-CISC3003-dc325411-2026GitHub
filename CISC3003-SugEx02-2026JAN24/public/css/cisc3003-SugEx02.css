@@ -393,7 +393,7 @@ footer {
 }
 
 .intro-text {
-    font-size: 1.1rem;
+    font-size: 1.125rem;
     line-height: 1.8;
     max-width: 90%;
     min-width: 0;                      /* 關鍵修復 */
@@ -661,11 +661,4 @@ textarea.form-control {
 .form-control::placeholder {
     font-family: "Lato", serif;
 }
-/* 高亮浅粉色 */
-.highlight {
-    background-color: #fef987;      
-    padding: 2px 5px;
-    border-radius: 4px;
-}
-
 
