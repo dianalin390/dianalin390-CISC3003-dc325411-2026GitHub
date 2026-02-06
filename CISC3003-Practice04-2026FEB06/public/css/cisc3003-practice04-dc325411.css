@@ -1,0 +1,147 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Lobster);
+
+/* general text formatting */
+h1, h2, h3, nav, footer {
+    font-family: Lobster, Cambria, "Times New Roman", serif;
+}
+body {
+    font-family: "Open Sans", Verdana, Arial, sans-serif;
+    font-size: 100%;
+    background-color: #E8EAF6;
+    margin: 0;
+    padding: 0;
+}
+
+/* header and navigation */
+header, footer {
+    color: white;
+    background-color: #1A237E;
+    margin: 0em 4em 0.25em 4em;
+    padding: 0.5em 0;
+}
+header h1 { 
+    padding: 0.5rem 0 0 1.25rem;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+}
+header p { 
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    padding: 0 0 0 1.25rem;
+    margin-top: 0.25rem;
+}
+footer p {
+    padding: 0.5rem 1.25rem;
+    margin: 0;
+}
+
+/* main article styling */
+main {
+    background-color: white;
+    margin: 1em 4em 1em 4em;
+    padding: 1em;
+}
+legend { 
+    font-size: 1.35rem;
+    background-color: #7986CB;
+    color: #E8EAF6;
+    text-transform: uppercase;
+    width: 100%;
+    margin: 0; /* 重置浏览器默认的legend偏移margin */
+    padding: 5px 0 5px 0px;
+    box-sizing: border-box; /* 关键：让width:100%包含padding，避免右溢出 */
+    border: none; /* 清除默认边框 */
+}
+fieldset {
+    margin: 0;
+    background-color: #C5CAE9;
+    width: 100%;
+    border: none;
+    box-sizing: border-box;
+    padding: 0; /* 去掉fieldset默认内边距，让legend和fieldset左右边界完全贴合 */
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0.75em;
+}
+td {
+    vertical-align: top;
+}
+label {
+    font-weight: 600;
+    color: black;
+}
+
+/* Form elements styling */
+input[type="text"], textarea, select, input[type="number"], input[type="date"], input[type="time"] {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #9FA8DA;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+textarea {
+    resize: vertical;
+}
+
+/* Rounded buttons */
+.rounded {
+    border-radius: 8px;
+    padding: 0.75em 1em;
+    background-color: #E91E63; /* 注意：你原代码里多了一个分号，已修正 */
+    color: white;
+    border: none;
+    width: 120px; 
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* 新增阴影的过渡动画 */
+    /* 核心：默认态阴影（柔和粉色系阴影） */
+    box-shadow: 0 4px 6px grey; 
+}
+.rounded:hover {
+    background-color: #C2185B; /* 修正多余分号 */
+    box-shadow: 0 6px 8px rgba(194, 24, 91, 0.4); /* 水平0 | 垂直6px | 模糊8px | 更深玫红 */
+    transform: translateY(-1px); /* 可选：hover时轻微上移，增强立体感 */
+}
+input[type="reset"].rounded {
+    background-color: #E91E63;
+}
+input[type="reset"].rounded:hover {
+    background-color: #C2185B;
+}
+
+/* Checkbox and radio styling */
+input[type="checkbox"], input[type="radio"] {
+    accent-color: #518fe0;
+}
+
+/* 单个模块的独立虚线框（匹配参考图） */
+.dashed-box {
+    border: 1px solid #9FA8DA; /* 深紫色虚线边框 */
+    padding: 0.8em; /* 框内边距 */
+    margin-bottom: 0.5em; /* 两个框之间的间距 */
+    background-color: #C5CAE9; /* 与背景色一致 */
+}
+/* 增大左右列间距 */
+.col-left {
+    padding-right: 4em; /* 可根据需要调整数值，比如3em/4em */
+}
+/* 增大左侧栏项目的垂直间距 */
+.col-left .col-item {
+    margin-bottom: 0.8em; /* 可按需调整数值，比如2.5em/3em */
+}
+/* License区域的紫色背景条 */
+.color-bar {
+    background-color: #9FA8DA; /* 目标紫色 */
+    color: white; /* 文字设为白色，保证可读性 */
+    padding: 0.7em 1em; /* 内边距，避免内容贴边 */
+    width: 100%;
+    box-sizing: border-box; /* 确保宽度包含内边距 */
+}

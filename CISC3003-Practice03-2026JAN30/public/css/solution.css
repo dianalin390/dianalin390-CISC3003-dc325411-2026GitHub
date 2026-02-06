@@ -1,0 +1,164 @@
+/* general text formatting */
+
+h1, h2, h3, nav, footer {
+ font-family: "Trebuchet MS", "Lucida Grande", Tahoma, sans-serif;
+}
+body {
+ font-family: Georgia, Cambria, "Times New Roman", serif;
+ font-size: 100%;
+ background-color: #E8EAF6;
+}
+
+p {
+  font-size: 16px; 
+  font-size: 1rem;
+}
+nav { 
+  font-size: 18px; 
+  font-size: 1.125rem;
+}
+
+/* link styling */
+
+a:link {
+   font-weight: bold;
+   color: #00B0FF;
+}
+a:visited {
+   color: #00B0FF;
+}
+a:hover {
+   background-color: #F50057;
+   color: white;
+}
+a:hover img {
+   background-color: white;
+
+}
+
+
+/* header and navigation */
+
+header, footer {
+  color: white;
+  background-color: #1A237E;
+  margin: 0em 4em 0.25em 4em;
+}
+header h1 { 
+  padding: 0.5rem 0 0 1.25rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+header p { 
+  font-size: 1rem;
+  font-style: italic;
+  margin-bottom: 1rem;
+  padding: 0 0 0 1.25rem;
+}
+header nav {
+  background-color: #3F51B5;
+  padding: 0.25rem 0 .5rem 1rem;
+}
+header nav ul li {
+   list-style: none;
+   display: inline;
+}
+header nav a {
+   padding: 0.25em;
+}
+
+/* main article styling */
+main {
+   background-color: white;
+   margin: 1em 4em 1em 4em;
+   padding: 1em;
+}
+
+section {
+   margin-bottom: 1em;
+   padding: 0;
+   border: solid 1px #C5CAE9;
+   width: 700px;
+}
+
+
+h3 { 
+  font-size: 1.35rem;
+  padding: 0.75em 0.75em; 
+  background-color: #7986CB;
+  height: 1.70rem;
+  color: #E8EAF6;
+  text-transform: uppercase;
+}
+
+p {
+   margin: 0 0 0.5em 0;
+}
+
+/* figure styling */
+
+figure {
+   margin: 0;
+}
+figure img {
+   margin:0;
+   padding:0;
+   vertical-align: middle;
+}
+figcaption {
+  color: #728B96;
+  background-color: #C5CAE9;
+  height: 1em;
+  margin:0;
+  font-style: italic;
+  font-size: 1.1rem;  
+  font-weight: bold;
+    height: 1.70rem;
+    padding: 0.75em 0.75em; 
+}
+figure+div {
+   margin: 0;
+   padding: 0.75em;
+
+}
+figure+div  p {
+   font-size: 100%;
+}
+figure+div img {
+   padding: 0;
+   border: 0;
+}
+figure+div p {
+   margin: 0;
+}
+
+
+
+
+/* review styling */
+
+#reviews {
+   margin-top: 1em;
+}
+#reviews div {
+   border-bottom: dotted 1pt #999999;
+   margin: 0.5em 1em 1em 1em;
+}
+#reviews .byline {
+   font-style: italic;
+   color: #3F51B5;
+   margin: 1rem 0 0.5rem 0;
+}
+#reviews time {
+   color: #FF80AB;
+}
+
+
+/* footer styling */
+footer {
+  padding: 1.25em;
+}
+footer p {
+  font-size: 14px; 
+  font-size: .875rem;
+}
