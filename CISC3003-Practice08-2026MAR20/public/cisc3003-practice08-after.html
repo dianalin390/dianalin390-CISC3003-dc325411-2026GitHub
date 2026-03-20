@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CISC3003 Practice 08</title>
+    <link href='http://fonts.googleapis.com/css?family=Merriweather' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- 引入 jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>    
+<body class="tiled">
+<header>
+    <h1>Art Filters</h1>
+</header>
+<main>
+    <div id="sliderBox">
+        <form>
+            <label>Opacity: </label>
+            <p>
+                <input type="range" id="sliderOpacity" min="0" max="100" value="100" class="sliders" data-default="100" /> 
+                <span id="numOpacity">100</span>%
+            </p>
+            <p>
+                <label>Saturation: </label>
+                <input type="range" id="sliderSaturation" min="1" max="300" value="100" class="sliders" data-default="100"/> 
+                <span id="numSaturation">100</span>%
+            </p>
+            <p>
+                <label>Brightness: </label>
+                <input type="range" id="sliderBrightness" min="0" max="300" value="100" class="sliders" data-default="100"/> 
+                <span id="numBrightness">100</span>%
+            </p>
+            <p>
+                <label>Hue Rotate: </label>
+                <input type="range" id="sliderHue" min="0" max="360" value="0" class="sliders" data-default="0"/> 
+                <span id="numHue">0</span>deg
+            </p>
+            <p>
+                <label>Grayscale: </label>
+                <input type="range" id="sliderGray" min="0" max="100" value="0" class="sliders" data-default="0"/> 
+                <span id="numGray">0</span>%
+            </p>
+            <p>
+                <label>Blur: </label>
+                <input type="range" id="sliderBlur" min="0" max="10" value="0" class="sliders" data-default="0"/> 
+                <span id="numBlur">0</span>px
+            </p>
+            <p>
+                <button type="button" id="resetFilters">Reset</button> 
+            </p>
+        </form>    
+    </div>
+    <figure id="imgManipulated">
+        <img src="images/medium/painting1.jpg" > 
+        <figcaption>
+            <em>Still Life with Flowers in a Glass Vase</em> <br>
+            Jan Davidsz. de Heem, 1650 - 1683
+        </figcaption>
+    </figure>   
+    <div id="thumbBox">
+        <div><img src="images/small/painting1.jpg"  alt="Still Life with Flowers in a Glass Vase" title="Jan Davidsz. de Heem, 1650 - 1683"/></div>
+        <div><img src="images/small/painting2.jpg"  alt="Portrait of Alida Christina Assink" title="Jan Adam Kruseman, 1833"/></div>
+        <div><img src="images/small/painting3.jpg"  alt="Self-portrait" title="Vincent van Gogh, 1887"/></div>
+        <div><img src="images/small/painting4.jpg"  alt="William II, Prince of Orange, and his Bride, Mary Stuart" title="Anthony van Dyck, 1641"/></div>
+        <div><img src="images/small/painting5.jpg"  alt="Milkmaid" title="Johannes Vermeer, c. 1660"/></div>
+    </div>
+</main>
+<script>
+$(document).ready(function() {
+    // 1. 缩略图点击切换主图和标题
+    $('#thumbBox img').on('click', function() {
+        // 获取缩略图src，替换small为medium
+        const smallSrc = $(this).attr('src');
+        const mediumSrc = smallSrc.replace('small/', 'medium/');
+        // 更新主图
+        $('#imgManipulated img').attr('src', mediumSrc);
+        // 更新figcaption内容
+        const altText = $(this).attr('alt');
+        const titleText = $(this).attr('title');
+        $('#imgManipulated figcaption').html(`<em>${altText}</em> <br>${titleText}`);
+    });
+
+    // 2. 滑块实时更新滤镜和数值显示
+    $('.sliders').on('input', function() {
+        // 获取所有滑块的值
+        const opacity = $('#sliderOpacity').val();
+        const saturation = $('#sliderSaturation').val();
+        const brightness = $('#sliderBrightness').val();
+        const hueRotate = $('#sliderHue').val();
+        const grayscale = $('#sliderGray').val();
+        const blur = $('#sliderBlur').val();
+
+        // 更新数值显示
+        $('#numOpacity').text(opacity);
+        $('#numSaturation').text(saturation);
+        $('#numBrightness').text(brightness);
+        $('#numHue').text(hueRotate);
+        $('#numGray').text(grayscale);
+        $('#numBlur').text(blur);
+
+        // 组合滤镜样式
+        const filterValue = `opacity(${opacity}%) saturate(${saturation}%) brightness(${brightness}%) hue-rotate(${hueRotate}deg) grayscale(${grayscale}%) blur(${blur}px)`;
+        
+        // 应用滤镜到主图
+        $('#imgManipulated img').css({
+            'filter': filterValue,
+            '-webkit-filter': filterValue
+        });
+    });
+
+    // 3. 重置按钮：恢复默认值并清除滤镜
+    $('#resetFilters').on('click', function() {
+        // 遍历所有滑块，恢复默认值
+        $('.sliders').each(function() {
+            const defaultValue = $(this).data('default');
+            $(this).val(defaultValue);
+            // 更新对应的数值显示
+            const id = $(this).attr('id');
+            const numId = '#num' + id.replace('slider', '');
+            $(numId).text(defaultValue);
+        });
+
+        // 清除所有滤镜
+        $('#imgManipulated img').css({
+            'filter': 'none',
+            '-webkit-filter': 'none'
+        });
+    });
+});
+</script>    
+</body>   
+</html>
