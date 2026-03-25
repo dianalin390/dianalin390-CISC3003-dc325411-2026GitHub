@@ -1,0 +1,142 @@
+/* ========== 基础样式：小屏视图 <900px (Figure 01) ========== */
+body{
+	margin: 1%;
+	padding:1%;
+	background-color: rgba(0,0,255,.2);
+	font-size: 100%;
+	min-width: 500px;
+}
+header, footer{
+  background-color:#0066FF;
+  padding: 1%;
+  margin: 1%;
+}
+header h1{
+	font-size: 3rem;
+	color:rgba(0,0,0,.7);
+}
+section{
+  margin:1%;
+  padding:1%;
+}
+nav a{
+	display:block;
+	background-color: white;
+	border: 1px solid black;
+	text-align: center;
+	border-radius: 35px;
+	text-decoration: none;
+	padding: 2%;
+	margin: 1%;
+}
+h1{
+	text-align: center;
+	color:rgba(255,0,0,.7);
+}
+.myClass{
+	margin: 0em 1em;
+	padding:.75em;
+	border: 1px solid black;
+	border-radius: .25%;
+	/* 多列布局兼容 */
+	-webkit-column-count:3;
+	-moz-column-count: 3;
+	column-count:3;
+}
+ol{
+	list-style:upper-roman; 
+	margin:1em;
+}
+img{
+	display: none;
+}
+footer{
+	clear: both;
+	text-align:center;
+	text-transform: uppercase;
+}
+
+/* ========== 大屏视图：屏幕宽度 >900px (Figure 02) ========== */
+@media screen and (min-width: 900px) {
+	header, footer {
+		background-color: transparent;
+	}
+	
+	/* 要求c：h1后追加文本 (I guess...) */
+	header h1::after {
+		content: "(I guess...)";
+	}
+
+	/* 要求b：两个section并排显示 */
+	section {
+		float: left;
+		width: 45%;
+	}
+
+	/* 要求a：图片可见 */
+	img {
+		display: inline-block;
+		width: 20%;
+		margin: 1em 2%;
+	}
+
+	/* 清除浮动，保证footer正常布局 */
+	footer {
+		clear: both;
+	}
+}
+
+/* ========== 打印视图 (Figure 03) ========== */
+@media print {
+	/* 要求d：移除所有背景色 */
+	* {
+		background-color: transparent !important;
+		background: none !important;
+	}
+	body {
+		background: white !important;
+		color: black;
+		min-width: auto;
+	}
+
+	/* 要求a：h1字号设置为1em */
+	header h1 {
+		font-size: 1em;
+		color: black;
+	}
+	h1 {
+		color: black;
+	}
+
+	/* 要求b：导航链接去除特殊样式，恢复打印友好样式 */
+	nav a {
+		display: block;
+		background: none;
+		border: none;
+		border-radius: 0;
+		text-decoration: underline;
+		color: blue;
+		padding: 0;
+		margin: 0.2em 0;
+		text-align: center;
+	}
+
+	/* 要求c：图片隐藏 */
+	img {
+		display: none !important;
+	}
+
+	/* 打印时取消浮动，恢复正常文档流 */
+	section {
+		float: none;
+		width: 100%;
+		margin: 1em 0;
+		padding: 0;
+	}
+
+	/* 打印页脚样式适配 */
+	footer {
+		text-transform: none;
+		margin-top: 2em;
+	}
+}
