@@ -1,0 +1,307 @@
+/* 全局基础重置 */
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+body {
+line-height: 1.6;
+background-color: #f5f5f5;
+}
+/* 整体布局：左侧侧边栏 + 右侧主内容 */
+.app-container {
+display: flex;
+min-height: 100vh;
+}
+/* 左侧侧边栏：导航菜单区域，浅一个色号 */
+.sidebar {
+width: 280px;
+background-color: #37474f; /* 头像下方导航区的浅色系，比头像区浅1个色号 */
+color: white;
+display: flex;
+flex-direction: column;
+flex-shrink: 0;
+}
+/* 侧边栏个人信息区：保持深色，和下方导航形成分层 */
+.profile {
+background-color: #263238; /* 原深色，作为头像区的背景，比下方导航深 */
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 30px 20px;
+gap: 10px;
+}
+.profile .username {
+font-size: 24px;
+font-weight: 500;
+margin-top: 10px;
+}
+.profile .user-email {
+font-size: 90%;
+color: #cfd8dc;
+opacity: 0.8;
+}
+.avatar {
+width: 96px;
+height: 96px;
+border-radius: 50%;
+display: block;
+border: 2px solid rgba(255,255,255,0.2);
+}
+/* 侧边栏导航菜单 */
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.nav-menu .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 24px;
+    color: #90a4ae; /* 核心修改：把原来的亮浅灰改成更暗的灰，和参考图完全匹配 */
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+/* 导航hover效果：鼠标悬浮时恢复高亮，保留交互反馈 */
+.nav-menu .nav-item:hover {
+    background-color: #263238;
+    color: white; /* hover时变回白色，和参考图的交互逻辑一致 */
+}
+
+/* 强制图标和文字颜色同步，确保图标也变暗 */
+.nav-menu .nav-item .material-icons {
+    color: inherit; /* 继承父级的暗色，不会出现图标和文字颜色不一致 */
+    font-size: 22px;
+    line-height: 1;
+    vertical-align: middle;
+}
+/* 导航hover效果：适配新的背景色，hover时变深更自然 */
+.nav-menu .nav-item:hover {
+background-color: #263238;
+color: white;
+}
+/* 右侧主内容区 */
+.main-content {
+flex: 1;
+display: flex;
+flex-direction: column;
+overflow-x: auto;
+}
+/* 顶部导航栏 */
+.top-header {
+background-color: #607d8b;
+padding: 16px 24px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+min-height: 70px;
+}
+header h1.mdl-layout-title {
+font-size: 32px;
+color: #ff6e40;
+margin: 0;
+}
+header h1 span {
+color: white;
+}
+/* 顶部右侧图标区 */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 24px; /* 匹配参考图的图标间距 */
+}
+
+/* 统一设置顶部图标：纯白色、大小、垂直对齐 */
+.header-actions .header-icon {
+    color: white !important; /* 强制图标为纯白色，不会被其他样式覆盖 */
+    font-size: 24px; /* 和参考图图标大小一致 */
+    line-height: 1;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+/* 图标+角标容器 */
+.header-actions .icon-badge {
+    position: relative;
+    cursor: pointer;
+}
+
+/* 角标样式：匹配参考图的橙色背景+白色数字 */
+.header-actions .badge {
+    position: absolute;
+    top: -6px;
+    right: -8px;
+    background-color: #ff9800; /* 和参考图橙色角标完全一致 */
+    color: white; /* 角标数字强制白色 */
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* 内容标题区 */
+.content-header {
+background-color: #b0bec5;
+padding: 16px 24px;
+}
+.content-header h4 {
+font-size: 18px;
+font-weight: 500;
+margin: 0;
+color: #263238;
+}
+.content-header p {
+font-size: 14px;
+color: #37474f;
+margin: 4px 0 0 0;
+}
+/* 双卡片容器 */
+.cards-container {
+display: flex;
+gap: 24px;
+padding: 24px;
+flex-wrap: wrap;
+}
+/* 通用卡片样式 */
+.card {
+background-color: white;
+border-radius: 4px;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+overflow: hidden;
+display: flex;
+flex-direction: column;
+}
+/* 我的订单卡片 */
+.card-orders {
+min-width: 280px;
+flex: 1;
+max-width: 350px;
+}
+/* 订单详情卡片 */
+.card-order-detail {
+flex: 3;
+min-width: 600px;
+}
+/* 卡片标题栏 */
+.card .card-header {
+padding: 16px 20px;
+color: white;
+}
+.card-orders .card-header {
+background-color: #673ab7;
+}
+.card-order-detail .card-header {
+background-color: #ff9800;
+}
+/* 卡片标题通用基础样式 */
+.card .card-header h4 {
+margin: 0;
+font-size: 22px;
+font-weight: 500;
+}
+/* 第一个卡片（My Orders）标题白色 */
+.card-orders .card-header h4 {
+color: white;
+}
+/* 第二个卡片（Selected Order）标题黑色 */
+.card-order-detail .card-header h4 {
+color: black;
+}
+/* 卡片内容区 */
+.card .card-content {
+padding: 20px;
+flex: 1;
+}
+/* 订单列表样式 */
+.order-list {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+.order-list .order-item a {
+color: #f9af56;
+text-decoration: underline;
+}
+.order-list .order-item a:hover {
+text-decoration: underline;
+}
+/* 客户信息 */
+.customer-info {
+text-align: center;
+margin-bottom: 16px;
+color: #424242;
+font-size: 14px;
+}
+/* 订单表格：完整外边框 + 阴影 + 全表格浅灰色文字 */
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.order-table th,
+.order-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+    vertical-align: middle;
+    color: #616161; /* 核心修改：表头和内容行统一用浅灰色 */
+}
+
+.order-table th {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.order-table .product-cover {
+    width: 50px;
+    height: auto;
+    border-radius: 2px;
+}
+
+.order-table .text-right {
+    text-align: right;
+}
+
+/* 合计行样式优化：去掉下边框，统一浅灰色文字 */
+.totals td,
+.grandtotals td {
+    border-bottom: none;
+}
+
+.totals {
+    font-style: italic;
+    color: #616161; /* 核心修改：Subtotal/Shipping 也改成浅灰色 */
+}
+.totals td {
+    padding: 8px 16px;
+}
+.grandtotals {
+    font-weight: 700;
+    color: #6200EA !important;
+}
+.grandtotals td {
+    padding: 12px 16px;
+    font-size: 16px;
+}
+/* 兼容原有MDL样式 */
+.page-content {
+margin: 10px;
+}
+main header {
+margin: 0;
+min-height: 40px;
+padding-left: 10px;
+padding-top: 5px;
+}
