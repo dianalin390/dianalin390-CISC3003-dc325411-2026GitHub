@@ -1,0 +1,12 @@
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    text-align: center;
+}
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}

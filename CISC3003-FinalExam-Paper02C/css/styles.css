@@ -1,0 +1,16 @@
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+}
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    color: #666;
+}
+#emailCheck {
+    font-size: 14px;
+    margin-top: 5px;
+}
